@@ -10,4 +10,6 @@ public interface EventDAO {
 	public List<Event> listEvent();
 	
 	public void removeEvent(Integer id);
+	
+	public Event getEvent(Integer id);
 }

@@ -23,8 +23,8 @@
 			<tr>
 				<td>${tl.caption}</td>
 				<td>${tl.events.size()}</td>
-				<td><a href="/events/list?tlid=${tl.id}">Events</a></td>
-				<td><a href="/timeline/delete?tlid=${tl.id}">Delete</a></td>
+				<td><a href="/timeline/events/list/${tl.id}">Events</a></td>
+				<td><a href="/timeline/timeline/delete/${tl.id}">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

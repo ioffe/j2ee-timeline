@@ -31,5 +31,9 @@ public class EventDAOImpl implements EventDAO {
 			sessionFactory.getCurrentSession().delete(e);
 		}
 	}
+
+	public Event getEvent(Integer id) {
+		return (Event)sessionFactory.getCurrentSession().load(Event.class, id);		
+	}
 	
 }

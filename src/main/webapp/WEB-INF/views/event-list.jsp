@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-	pageEncoding="utf8"%>
+<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -28,7 +27,7 @@
 				<td>${event.startDate}</td>
 				<td>${event.endDate}</td>
 				<td>${event.desc}</td>
-				<td><a href="delete/${event.id}"><spring:message code="label.delete" /></a></td>
+				<td><a href="/timeline/events/delete/${event.id}"><spring:message code="label.delete" /></a></td>
 			</tr>
 		</c:forEach>
 	</table>

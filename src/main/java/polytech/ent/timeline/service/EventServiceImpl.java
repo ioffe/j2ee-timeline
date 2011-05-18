@@ -28,4 +28,8 @@ public class EventServiceImpl implements EventService {
 		eventDAO.removeEvent(id);
 	}
 
+	public Event getEvent(Integer id) {
+		return eventDAO.getEvent(id);
+	}
+
 }
