@@ -4,6 +4,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,6 +41,25 @@ public class EventListController {
 		
 		eventService.removeEvent(eventId);
 		return "redirect:/events/list/" + tlid;
+	}
+	
+	@RequestMapping(value = "/events/do-add/{tlid}", method = RequestMethod.POST)
+	public String doAddEvent(@PathVariable("tlid") Integer tlid, @ModelAttribute("event") Event event, BindingResult result) {
+		Timeline t = tlService.getTimeline(tlid);
+		if (t == null)
+			throw new IdNotFoundException();
+		
+		event.setTimeline(t);
+		eventService.addEvent(event);
+		return "redirect:/events/list/" + tlid;
+	}
+	
+	@RequestMapping("/events/add/{tlid}")
+	public String addEvent(@PathVariable("tlid") Integer tlid, Map<String, Object> map, @ModelAttribute("event") Event event, BindingResult result) {
+		
+		map.put("tlid", tlid);
+		
+		return "event-add";
 	}
 	
 

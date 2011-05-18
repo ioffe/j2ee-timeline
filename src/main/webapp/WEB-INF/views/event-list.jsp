@@ -33,6 +33,7 @@
 	</table>
 </c:if>
 
+<a href="/timeline/events/add/${tl.id}">Добавить</a>
 
 
 </body>
